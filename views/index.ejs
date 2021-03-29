@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>21 Savage Fans</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <h1>Library</h1>
+    <h2>"Books are a uniquely portable magic." - Stephen King</h2>
+
+
+    <h3>Books</h3>
+    <ul class="messages">
+      <% for(var i=0; i<library.length; i++) {%>
+      <li class="message">
+        <span><%= library[i].title %></span>
+        <span><%= library[i].author %></span>
+        <% if (library[i].checkout === true) {%>
+        <span class="availability"><%= "Not Available" %></span>
+        <button data-value="<%= library[i]._id %>" class="checkin">Check in</button>
+        <%} else{%>
+        <span class="availability"><%= "Available" %></span>
+        <button data-value="<%= library[i]._id %>" class="checkout">Check out</button>
+        <% } %>
+
+      </li>
+      <% } %>
+
+    </ul>
+
+    <h2>Add a message</h2>
+
+    <form>
+      <input type="text" placeholder="title" name="title">
+      <input type="text" placeholder="author" name="author">
+      <button class="submit" type="submit">Submit</button>
+    </form>
+
+  </main>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
